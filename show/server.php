@@ -1,16 +1,23 @@
 <?php
-  include 'database.php';
+  include __DIR__ . '/../database.php';
+  
+  if(empty($_GET['id'])) {
+    die('ID non esistente');
+  }
 
-  $idRoom = $_GET['id'];
+  $roomId = $_GET['id'];
 
-  $sql = "SELECT * FROM `stanze` WHERE `id` =  $idRoom";
+  $sql = "SELECT * FROM `stanze` WHERE `id`='$roomId'";
+
   $result = $conn->query($sql);
 
-  if ($result && $result->num_rows > 0) {
+  if($result && $result->num_rows > 0) {
     $room = $result->fetch_assoc();
-  } elseif ($result) {
+  } 
+  elseif ($result) {
     echo 'No results';
-  } else {
+  }
+  else {
     echo 'Query error';
   }
 

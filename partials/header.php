@@ -1,4 +1,4 @@
-<?php include_once 'env.php' ?>
+<?php include_once __DIR__ . '/../env.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,12 +11,15 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
       <div class="navbar-brand">Hotel Booleana</div>
-      <ul class="navbar-nav">
-        <li><a href="<?php echo $basePath ?>">Tutte le stanze</a></li>
-      </ul>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="<?php echo $basePath ?>">Tutte le stanze</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?php echo $basePath ?>create/create.php">Inserisci una stanza</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
-  
+
   <div class="wrapper mt-5">
